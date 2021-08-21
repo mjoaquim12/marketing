@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+
+  axonserver:
+    image: axoniq/axonserver
+    hostname: axonserver
+    environment:
+      - AXONSERVER_HOSTNAME=axonserver
+    ports:
+      - 8024:8024
+
+  preferences-command-service:
+    build:
+      context: .
+      dockerfile: ./preferences-command/Dockerfile
+    image: tgtechnology/preferences-command-service:latest
+    environment:
+        - AXONSERVER_HOSTNAME=axonserver
+    ports:
+      - 8080:8080
+
+  preferences-query-service:
+    build:
+      context: .
+      dockerfile: ./preferences-query/Dockerfile
+    image: tgtechnology/preferences-query-service:latest
+    environment:
+        - AXONSERVER_HOSTNAME=axonserver
+    ports:
+      - 8081:8081
