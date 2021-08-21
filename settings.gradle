@@ -1,0 +1,5 @@
+rootProject.name = 'marketing'
+
+include 'preferences-common'
+include 'preferences-command'
+include 'preferences-query'
