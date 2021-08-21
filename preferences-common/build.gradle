@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+group 'com.tgtechnology'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '16'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.axonframework:axon-modelling:4.5.3'
+}
