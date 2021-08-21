@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: preferences-command-deployment
+  labels:
+    app: preferences-command
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: preferences-command
+  template:
+    metadata:
+      labels:
+        app: preferences-command
+    spec:
+      containers:
+        - name: preferences-command
+          image: mjoaquim12/preferences-command-service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: AXONSERVER_HOSTNAME
+              value: axonserver
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: preferences-command-service
+spec:
+  selector:
+    app: preferences-command
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
