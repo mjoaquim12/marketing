@@ -20,6 +20,14 @@ Sample http requests.
    ```
    POST http://localhost:8080/customer/{customer_id}/preferences
    ```
+   ```
+   Sample JSON body
+   {
+     "email":true,
+     "post":false,
+     "sms":true
+   }
+   ```
 3. Query customer preferences. Replace customer_id with the response from request 1.
     ```
    GET http://localhost:8081/customer/{customer_id}/preferences
