@@ -14,7 +14,7 @@ import java.util.UUID;
 @Service
 public class PreferenceProjection {
 
-    private final Map<UUID, PreferenceDTO> customerPreferences = new HashMap<>(); // TODO: Repla with Redis cache
+    private final Map<UUID, PreferenceDTO> customerPreferences = new HashMap<>(); // TODO: Replace with Redis cache
 
     @EventHandler
     public void on(PreferenceCreatedEvent preferenceCreatedEvent) {
